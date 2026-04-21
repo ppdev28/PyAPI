@@ -11,6 +11,22 @@ pip install -r requirements.txt
 uvicorn main:app --reload
 ```
 
+## Ejecutar con Docker Compose
+
+```bash
+docker compose up --build
+```
+
+Servicios disponibles:
+
+- API: `http://localhost:8000`
+- API docs: `http://localhost:8000/docs`
+- Metrics: `http://localhost:8000/metrics`
+- Prometheus: `http://localhost:9090`
+- Grafana: `http://localhost:3000` (usuario: `admin`, password: `admin`)
+
+El dashboard `PyAPI Overview` se provisiona automaticamente al iniciar Grafana.
+
 ## Estructura del proyecto
 
 ```text
@@ -22,6 +38,13 @@ uvicorn main:app --reload
 │   ├── services/
 │   └── main.py
 ├── tests/
+├── monitoring/
+│   ├── prometheus/
+│   └── grafana/
+│       └── provisioning/
+├── Dockerfile
+├── docker-compose.yml
+├── .dockerignore
 ├── main.py
 ├── requirements.txt
 └── .gitignore
